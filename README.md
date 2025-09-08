@@ -64,6 +64,10 @@ repository-factory-pattern/
 ### 시스템 요구사항
 - **OS**: macOS, Linux, Windows (WSL2 권장)
 - **메모리**: 최소 4GB RAM
+  - Node.js 런타임 (~500MB)
+  - PostgreSQL (~500MB-1GB)
+  - 개발 도구 (VS Code, 브라우저 등 ~2GB)
+  - 여유 메모리 (~1GB)
 - **저장공간**: 최소 1GB 여유 공간
 
 ## 🚀 시작하기
