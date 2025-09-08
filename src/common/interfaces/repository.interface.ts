@@ -1,6 +1,6 @@
 /**
  * Repository Interfaces
- * 
+ *
  * Repository 패턴의 핵심 인터페이스들을 정의
  * 모든 Repository 구현체가 따라야 하는 계약을 명시
  */
@@ -10,7 +10,7 @@ import { PaginatedResult, QueryOptions } from '../types/query.types';
 /**
  * 기본 Repository 인터페이스
  * CRUD 작업과 쿼리 기능을 정의하는 기본 Repository 계약
- * 
+ *
  * @template T 엔티티 타입 (예: User, Post)
  * @template CreateDto 생성 DTO 타입
  * @template UpdateDto 수정 DTO 타입
@@ -163,9 +163,9 @@ export interface IBaseRepository<T, CreateDto, UpdateDto> {
 /**
  * 트랜잭션 지원 Repository 인터페이스
  * 데이터베이스 트랜잭션을 지원하는 Repository에서 구현
- * 
+ *
  * @template T 엔티티 타입
- * @template CreateDto 생성 DTO 타입  
+ * @template CreateDto 생성 DTO 타입
  * @template UpdateDto 수정 DTO 타입
  */
 export interface ITransactionalRepository<T, CreateDto, UpdateDto>

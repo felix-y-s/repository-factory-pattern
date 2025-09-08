@@ -1,4 +1,9 @@
-import { ConflictException, Injectable, Logger, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  Logger,
+  NotFoundException,
+} from '@nestjs/common';
 import { User } from '@prisma/client';
 import { UserRepository } from 'src/repositories/user.repository';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -8,9 +13,7 @@ import { PaginatedResult } from 'src/common';
 export class UserService {
   private readonly logger = new Logger(UserService.name);
 
-  constructor(
-    private readonly userRepository: UserRepository
-  ) {}
+  constructor(private readonly userRepository: UserRepository) {}
 
   async createUser(userData: CreateUserDto): Promise<User> {
     try {
@@ -26,7 +29,9 @@ export class UserService {
   async getUserByEmail(email: string): Promise<User | null> {
     const user = await this.userRepository.findByEmail(email);
     if (user === null) {
-      throw new NotFoundException(`사용자를 찾을 수 없습니다. (email: ${email})`);
+      throw new NotFoundException(
+        `사용자를 찾을 수 없습니다. (email: ${email})`,
+      );
     }
     return user;
   }

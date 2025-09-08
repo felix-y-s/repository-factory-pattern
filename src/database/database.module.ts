@@ -1,6 +1,12 @@
 import { Module } from '@nestjs/common';
 import { PrismaService } from './prisma.service';
-import { DATABASE_ADAPTER_FACTORY, DatabaseAdapterFactory, DEFAULT_LIMIT_TOKEN, PrismaAdapterFactory, USER_ADAPTER_TOKEN } from 'src/common';
+import {
+  DATABASE_ADAPTER_FACTORY,
+  DatabaseAdapterFactory,
+  DEFAULT_LIMIT_TOKEN,
+  PrismaAdapterFactory,
+  USER_ADAPTER_TOKEN,
+} from 'src/common';
 import { UserRepository } from 'src/repositories/user.repository';
 
 @Module({
@@ -14,7 +20,7 @@ import { UserRepository } from 'src/repositories/user.repository';
     // 조회 시 가져올 행 수 기본값 지정(옵셔널)
     {
       provide: DEFAULT_LIMIT_TOKEN,
-      useValue: 10
+      useValue: 10,
     },
     {
       provide: DATABASE_ADAPTER_FACTORY,

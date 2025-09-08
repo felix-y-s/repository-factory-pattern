@@ -1,6 +1,6 @@
 /**
  * Database Interface
- * 
+ *
  * ORM 독립적인 데이터베이스 인터페이스 정의
  * Prisma, TypeORM, Sequelize 등 다양한 ORM과 호환 가능한 추상화
  */
@@ -34,13 +34,13 @@ export abstract class DatabaseAdapterFactory {
    * @returns DatabaseDelegate 인터페이스를 구현한 어댑터
    */
   abstract createAdapter(modelName: string): DatabaseDelegate;
-  
+
   /**
    * 사용자 모델 전용 어댑터 생성
    * @returns 사용자 모델 데이터베이스 어댑터
    */
   abstract createUserAdapter(): DatabaseDelegate;
-  
+
   /**
    * 게시글 모델 전용 어댑터 생성
    * @returns 게시글 모델 데이터베이스 어댑터

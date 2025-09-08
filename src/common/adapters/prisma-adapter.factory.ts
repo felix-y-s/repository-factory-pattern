@@ -1,12 +1,15 @@
 /**
  * Prisma Adapter Factory
- * 
+ *
  * Prisma ORM을 위한 DatabaseAdapterFactory의 구체적인 구현체
  * Prisma Client를 사용하여 데이터베이스 어댑터를 생성
  */
 
 import { Injectable } from '@nestjs/common';
-import { DatabaseAdapterFactory, DatabaseDelegate } from '../interfaces/database.interface';
+import {
+  DatabaseAdapterFactory,
+  DatabaseDelegate,
+} from '../interfaces/database.interface';
 
 @Injectable()
 export class PrismaAdapterFactory extends DatabaseAdapterFactory {
@@ -16,10 +19,10 @@ export class PrismaAdapterFactory extends DatabaseAdapterFactory {
 
   /**
    * 모델명을 기반으로 Prisma 어댑터 생성
-   * @param modelName 모델명 (예: 'User', 'Post') 
+   * @param modelName 모델명 (예: 'User', 'Post')
    * @returns Prisma 모델 델리게이트
    * @throws Error 모델을 찾을 수 없는 경우
-   * 
+   *
    * @example
    * // 'User' 모델 어댑터 생성
    * const userAdapter = factory.createAdapter('User');
@@ -32,7 +35,7 @@ export class PrismaAdapterFactory extends DatabaseAdapterFactory {
     if (!adapter) {
       throw new Error(
         `Database model '${modelName}' not found in DatabaseClient. ` +
-        `Available models: ${Object.keys(this.databaseClient).join(', ')}`,
+          `Available models: ${Object.keys(this.databaseClient).join(', ')}`,
       );
     }
 

@@ -1,6 +1,6 @@
 /**
  * Dependency Injection Tokens
- * 
+ *
  * 이 파일은 NestJS 의존성 주입에서 사용되는 모든 토큰을 정의합니다.
  * Symbol을 사용하여 전역적으로 고유한 토큰을 보장합니다.
  */

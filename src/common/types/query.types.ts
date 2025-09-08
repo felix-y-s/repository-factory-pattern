@@ -1,8 +1,8 @@
 /**
- * Pagination and Query Types
- * 
- * 페이지네이션과 쿼리 관련 타입 정의
- * Repository 패턴에서 공통으로 사용되는 타입들
+ * Query Types
+ *
+ * Repository 패턴에서 사용되는 쿼리, 페이지네이션, 정렬, 필터링 관련 타입 정의
+ * 데이터베이스 조회 작업에 필요한 모든 타입들을 포함
  */
 
 // 페이지네이션 파라미터
@@ -43,3 +43,4 @@ export interface QueryOptions<T = any>
     FilterOptions<T> {
   orderBy?: SortOptions<T>[];
 }
+
