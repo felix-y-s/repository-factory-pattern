@@ -1,13 +1,13 @@
 import { Inject, Injectable } from '@nestjs/common';
 import {
   DATABASE_ADAPTER_FACTORY,
+  DEFAULT_LIMIT_TOKEN,
   DatabaseAdapterFactory,
   DatabaseDelegate,
-  DEFAULT_LIMIT_TOKEN,
   IBaseRepository,
   PaginatedResult,
   QueryOptions,
-} from 'src/common/interface/base.repository';
+} from 'src/common';
 
 @Injectable()
 export abstract class BaseRepository<T, CreateDto, UpdateDto>

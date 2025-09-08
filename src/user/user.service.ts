@@ -2,7 +2,7 @@ import { ConflictException, Injectable, Logger, NotFoundException } from '@nestj
 import { User } from '@prisma/client';
 import { UserRepository } from 'src/repositories/user.repository';
 import { CreateUserDto } from './dto/create-user.dto';
-import { PaginatedResult } from 'src/common/interface/base.repository';
+import { PaginatedResult } from 'src/common';
 
 @Injectable()
 export class UserService {
