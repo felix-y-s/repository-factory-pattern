@@ -5,7 +5,7 @@
  * 모든 Repository 구현체가 따라야 하는 계약을 명시
  */
 
-import { PaginatedResult, QueryOptions } from '../types/pagination.types';
+import { PaginatedResult, QueryOptions } from '../types/query.types';
 
 /**
  * 기본 Repository 인터페이스
