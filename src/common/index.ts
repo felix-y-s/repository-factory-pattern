@@ -21,6 +21,3 @@ export * from './interfaces';
 
 // Types
 export * from './types';
-
-// Adapters
-export * from './adapters';

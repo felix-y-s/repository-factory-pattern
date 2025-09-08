@@ -5,3 +5,4 @@
  */
 
 export * from './prisma-adapter.factory';
+export * from './database-adapter.factory';

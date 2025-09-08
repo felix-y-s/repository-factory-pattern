@@ -7,9 +7,9 @@
 
 import { Injectable } from '@nestjs/common';
 import {
-  DatabaseAdapterFactory,
   DatabaseDelegate,
-} from '../interfaces/database.interface';
+} from '../common';
+import { DatabaseAdapterFactory } from './database-adapter.factory';
 
 @Injectable()
 export class PrismaAdapterFactory extends DatabaseAdapterFactory {

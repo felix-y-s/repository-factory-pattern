@@ -2,11 +2,10 @@ import { Module } from '@nestjs/common';
 import { PrismaService } from './prisma.service';
 import {
   DATABASE_ADAPTER_FACTORY,
-  DatabaseAdapterFactory,
   DEFAULT_LIMIT_TOKEN,
-  PrismaAdapterFactory,
   USER_ADAPTER_TOKEN,
 } from 'src/common';
+import { DatabaseAdapterFactory, PrismaAdapterFactory } from 'src/adapters';
 import { UserRepository } from 'src/repositories/user.repository';
 
 @Module({
