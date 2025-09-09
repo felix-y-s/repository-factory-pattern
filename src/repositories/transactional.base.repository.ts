@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { BaseRepository } from './base.repository';
 import {
-  DatabaseAdapterFactory,
   IBaseRepository,
   ITransactionalRepository,
 } from 'src/common';
+import { DatabaseAdapterFactory } from 'src/adapters';
 
 @Injectable()
 export abstract class TransactionalBaseRepository<T, CreateDto, UpdateDto>

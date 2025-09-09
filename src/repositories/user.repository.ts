@@ -3,11 +3,8 @@ import { BaseRepository } from './base.repository';
 import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { UpdateUserDto } from 'src/user/dto/update-user.dto';
 import { User } from '@prisma/client';
-import {
-  DATABASE_ADAPTER_FACTORY,
-  DatabaseAdapterFactory,
-  DEFAULT_LIMIT_TOKEN,
-} from 'src/common';
+import { DATABASE_ADAPTER_FACTORY, DEFAULT_LIMIT_TOKEN } from 'src/common';
+import { DatabaseAdapterFactory } from 'src/adapters';
 
 @Injectable()
 export class UserRepository extends BaseRepository<

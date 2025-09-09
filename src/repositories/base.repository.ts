@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { DatabaseAdapterFactory } from 'src/adapters';
 import {
   DATABASE_ADAPTER_FACTORY,
   DEFAULT_LIMIT_TOKEN,
-  DatabaseAdapterFactory,
   DatabaseDelegate,
   IBaseRepository,
   PaginatedResult,
