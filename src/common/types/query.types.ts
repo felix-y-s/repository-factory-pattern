@@ -43,4 +43,3 @@ export interface QueryOptions<T = any>
     FilterOptions<T> {
   orderBy?: SortOptions<T>[];
 }
-

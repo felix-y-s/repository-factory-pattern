@@ -6,9 +6,7 @@
  */
 
 import { Injectable } from '@nestjs/common';
-import {
-  DatabaseDelegate,
-} from '../common';
+import { DatabaseDelegate } from '../common';
 import { DatabaseAdapterFactory } from './database-adapter.factory';
 
 @Injectable()

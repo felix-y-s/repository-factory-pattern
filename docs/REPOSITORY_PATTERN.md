@@ -37,14 +37,14 @@ graph TB
     Adapter --> Client[PrismaClient]
     
     subgraph "Abstraction Layer"
-        IRepository[IBaseRepository]
         IFactory[DatabaseAdapterFactory]
         IDelegate[DatabaseDelegate]
     end
     
-    BaseRepository -.-> IRepository
     Factory -.-> IFactory
     Adapter -.-> IDelegate
+    
+    note1[BaseRepository는 추상 클래스로<br/>인터페이스 대신 직접 상속 사용]
 ```
 
 ### 레이어별 책임
@@ -58,12 +58,13 @@ graph TB
 
 ## 🔧 핵심 인터페이스
 
-### IBaseRepository<T, CreateDto, UpdateDto>
+### BaseRepository<T, CreateDto, UpdateDto>
 
-모든 Repository가 구현해야 하는 기본 계약입니다.
+모든 Repository가 상속해야 하는 기본 추상 클래스입니다. 과도한 추상화를 피하고 직접적인 상속을 통해 코드 복잡성을 줄입니다.
 
 ```typescript
-export interface IBaseRepository<T, CreateDto, UpdateDto> {
+export abstract class BaseRepository<T, CreateDto, UpdateDto> {
+  protected abstract readonly modelName: string;
   // 단일 조회
   findById(id: string | number): Promise<T | null>;
   findOne(where: Partial<T>): Promise<T | null>;

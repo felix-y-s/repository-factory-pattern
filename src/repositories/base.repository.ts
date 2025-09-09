@@ -4,15 +4,12 @@ import {
   DATABASE_ADAPTER_FACTORY,
   DEFAULT_LIMIT_TOKEN,
   DatabaseDelegate,
-  IBaseRepository,
   PaginatedResult,
   QueryOptions,
 } from 'src/common';
 
 @Injectable()
-export abstract class BaseRepository<T, CreateDto, UpdateDto>
-  implements IBaseRepository<T, CreateDto, UpdateDto>
-{
+export abstract class BaseRepository<T, CreateDto, UpdateDto> {
   protected abstract readonly modelName: string;
   private _database?: DatabaseDelegate;
 
@@ -24,6 +21,7 @@ export abstract class BaseRepository<T, CreateDto, UpdateDto>
   ) {}
 
   // NOTE: 🔴 포인트
+  // 지연 초기화: 추상 프로퍼티는 생성자에서 접근이 불가능
   protected get database(): DatabaseDelegate {
     if (!this._database) {
       this._database = this.adapterFactory.createAdapter(this.modelName);

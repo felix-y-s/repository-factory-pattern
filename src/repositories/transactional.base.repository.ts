@@ -1,16 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { BaseRepository } from './base.repository';
-import {
-  IBaseRepository,
-  ITransactionalRepository,
-} from 'src/common';
+import { TransactionCallback } from 'src/common';
 import { DatabaseAdapterFactory } from 'src/adapters';
 
 @Injectable()
-export abstract class TransactionalBaseRepository<T, CreateDto, UpdateDto>
-  extends BaseRepository<T, CreateDto, UpdateDto>
-  implements ITransactionalRepository<T, CreateDto, UpdateDto>
-{
+export abstract class TransactionalBaseRepository<
+  T,
+  CreateDto,
+  UpdateDto,
+> extends BaseRepository<T, CreateDto, UpdateDto> {
   constructor(
     adapterFactory: DatabaseAdapterFactory,
     protected readonly databaseClient: any,
@@ -20,7 +18,7 @@ export abstract class TransactionalBaseRepository<T, CreateDto, UpdateDto>
   }
 
   async withTransaction<R>(
-    callback: (repo: IBaseRepository<T, CreateDto, UpdateDto>) => Promise<R>,
+    callback: TransactionCallback<T, CreateDto, UpdateDto, R>,
   ): Promise<R> {
     return await this.databaseClient.$transaction(async (tx: any) => {
       const transactionalRepo = Object.create(Object.getPrototypeOf(this));
