@@ -5,9 +5,6 @@
  * Symbol을 사용하여 전역적으로 고유한 토큰을 보장합니다.
  */
 
-// 데이터베이스 어댑터 관련 토큰
-export const DATABASE_ADAPTER_FACTORY = Symbol('DatabaseAdapterFactory');
-
 // 모델별 어댑터 토큰 (특정 모델에 특화된 어댑터가 필요한 경우)
 export const USER_ADAPTER_TOKEN = Symbol('UserAdapter');
 export const POST_ADAPTER_TOKEN = Symbol('PostAdapter');

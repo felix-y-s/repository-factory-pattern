@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { DatabaseAdapterFactory } from 'src/adapters';
 import {
-  DATABASE_ADAPTER_FACTORY,
   DEFAULT_LIMIT_TOKEN,
   DatabaseDelegate,
   PaginatedResult,
@@ -12,20 +11,19 @@ import {
 export abstract class BaseRepository<
   T,
   CreateDto extends Partial<T> = Partial<T>,
-  UpdateDto extends Partial<T> = Partial<T>
+  UpdateDto extends Partial<T> = Partial<T>,
 > {
   protected abstract readonly modelName: string;
   private _database?: DatabaseDelegate;
 
   constructor(
-    @Inject(DATABASE_ADAPTER_FACTORY) // ← 써도 되고 안 써도 됨 (무시됨): 실제 인스턴스화되는 자식 클래스에서 인스턴스화 됨
     protected readonly adapterFactory: DatabaseAdapterFactory,
     @Inject(DEFAULT_LIMIT_TOKEN) // ← 써도 되고 안 써도 됨 (무시됨)
     protected readonly defaultLimit: number = 20,
   ) {}
 
   // NOTE: 🔴 포인트
-  // 지연 초기화: 추상 프로퍼티는 생성자에서 접근이 불가능
+  // 지연 초기화: 추상 프로퍼티(this.modelName)는 생성자에서 접근이 불가능
   protected get database(): DatabaseDelegate {
     if (!this._database) {
       this._database = this.adapterFactory.createAdapter(this.modelName);
