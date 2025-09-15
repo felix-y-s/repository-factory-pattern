@@ -9,7 +9,11 @@ import {
 } from 'src/common';
 
 @Injectable()
-export abstract class BaseRepository<T, CreateDto, UpdateDto> {
+export abstract class BaseRepository<
+  T,
+  CreateDto extends Partial<T> = Partial<T>,
+  UpdateDto extends Partial<T> = Partial<T>
+> {
   protected abstract readonly modelName: string;
   private _database?: DatabaseDelegate;
 
@@ -132,7 +136,7 @@ export abstract class BaseRepository<T, CreateDto, UpdateDto> {
   }
 
   async existsBy(where: Partial<T>): Promise<boolean> {
-    const result = this.database.findUnique({
+    const result = await this.database.findUnique({
       where,
       select: { id: true },
     });

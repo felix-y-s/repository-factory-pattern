@@ -6,8 +6,8 @@ import { DatabaseAdapterFactory } from 'src/adapters';
 @Injectable()
 export abstract class TransactionalBaseRepository<
   T,
-  CreateDto,
-  UpdateDto,
+  CreateDto extends Partial<T> = Partial<T>,
+  UpdateDto extends Partial<T> = Partial<T>,
 > extends BaseRepository<T, CreateDto, UpdateDto> {
   constructor(
     adapterFactory: DatabaseAdapterFactory,

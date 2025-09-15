@@ -1,8 +1,7 @@
 /**
  * Adapters Index
  *
- * 모든 어댑터 구현체를 한 곳에서 export
+ * 통합된 데이터베이스 어댑터 팩토리 export
  */
 
-export * from './prisma-adapter.factory';
 export * from './database-adapter.factory';
